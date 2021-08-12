@@ -1,10 +1,15 @@
 # Import the libraries
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 from features import FeatureExtractor
 from PIL import Image
 
 
+# Load feature library
+features = [np.load("features/"+f) for f in sorted(os.listdir("./features"))]
+# Image paths
+img_paths = sorted(os.listdir("./images"))
 # New feature extractor
 fe = FeatureExtractor()
 # Insert the image query
@@ -25,6 +30,6 @@ for a in range(5*6):
     subplot_title = str(score[0])
     axes[-1].set_title(subplot_title)
     plt.axis('off')
-    plt.imshow(Image.open(score[1]))
+    plt.imshow(Image.open("images/"+score[1]))
 fig.tight_layout()
 plt.show()
