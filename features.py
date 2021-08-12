@@ -31,10 +31,12 @@ class FeatureExtractor:
 
 
 if __name__ == "__main__":
+    # New feature extractor
+    fe = FeatureExtractor()
+    
     # Iterate through images (Change the path based on your image location)
     for img in sorted(os.listdir("./images")):
-        # New feature extractor
-        fe = FeatureExtractor()
+        
         # Image path
         img_path = "./images/{}".format(img) 
         print(img_path)
